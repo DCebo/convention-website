@@ -132,4 +132,6 @@ const NewsletterModal = forwardRef<NewsletterModalRef, NewsletterModalProps>(({ 
   );
 });
 
+NewsletterModal.displayName = 'NewsletterModal';
+
 export default NewsletterModal;
