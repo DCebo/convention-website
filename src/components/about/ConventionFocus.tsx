@@ -66,7 +66,7 @@ const ConventionFocus = () => {
           
           <div className="bg-accent/10 rounded-xl p-6 shadow-lg">
             <p className="text-lg mb-6 text-center">
-              We&apos;re excited to announce our plans to expand ConventionHub to include 
+              We&apos;re excited to announce our plans to expand Collect-It-Con to include 
               even more communities and interests:
             </p>
             
@@ -108,7 +108,7 @@ const ConventionFocus = () => {
                 <div>
                   <h6 className="font-bold text-primary mb-2">Our Expansion Vision</h6>
                   <p className="text-sm text-gray-700 italic leading-relaxed">
-                    &quot;We envision ConventionHub as a multi-faceted convention experience that brings 
+                    &quot;We envision Collect-It-Con as a multi-faceted convention experience that brings 
                     together diverse communities under one roof, fostering new connections and 
                     shared experiences across different interests and hobbies. Each expansion 
                     strengthens our core mission of building inclusive, passionate communities.&quot;

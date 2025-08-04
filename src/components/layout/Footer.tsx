@@ -21,7 +21,7 @@ const Footer = () => {
                 <div className="text-xl">🎴</div>
               </div>
               <h3 className="text-2xl font-bold text-primary">
-                ConventionHub
+                Collect-It-Con
               </h3>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -71,7 +71,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-4">
               <div className="text-gray-300 text-sm">
-                <p>info@conventionhub.com</p>
+                <p>info@collect-it-con.com</p>
               </div>
               
               {/* Social Media Links with gaming theme */}
@@ -121,7 +121,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} ConventionHub. All rights reserved. Made with ❤️ for gamers.
+              © {new Date().getFullYear()} Collect-It-Con. All rights reserved. Made with ❤️ for gamers.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="#" className="text-gray-400 hover:text-purple-400 text-sm transition-colors">

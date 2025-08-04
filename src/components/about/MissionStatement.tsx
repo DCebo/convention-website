@@ -9,7 +9,7 @@ const MissionStatement = () => {
     >
       <div className="max-w-4xl mx-auto">
         <p className="text-xl leading-relaxed mb-6">
-          At ConventionHub, our mission is to create the ultimate gathering place for 
+          At Collect-It-Con, our mission is to create the ultimate gathering place for 
           <span className="font-bold text-primary"> Trading Card Game (TCG)</span> enthusiasts and 
           <span className="font-bold text-secondary"> sports card collectors</span>. 
           We believe in fostering a vibrant community where passion meets competition, 
@@ -20,7 +20,7 @@ const MissionStatement = () => {
           We are dedicated to providing exceptional experiences that celebrate the artistry, 
           strategy, and collecting culture that makes our community so special. Whether you&apos;re 
           a seasoned tournament player, a casual collector, or someone just discovering the 
-          world of cards, ConventionHub is your home.
+          world of cards, Collect-It-Con is your home.
         </p>
 
         <div className="bg-primary/10 rounded-2xl p-8 mt-8">

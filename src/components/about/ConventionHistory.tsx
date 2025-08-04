@@ -17,7 +17,7 @@ const ConventionHistory = () => {
               <div className="border-l-4 border-primary pl-6">
                 <h4 className="text-lg font-bold text-primary mb-2">2019 - The Beginning</h4>
                 <p className="text-gray-700">
-                  ConventionHub was born from a simple idea: create a space where TCG and sports card 
+                  Collect-It-Con was born from a simple idea: create a space where TCG and sports card 
                   enthusiasts could come together to share their passion. Our founders, a group of 
                   dedicated collectors and players, organized the first small gathering in a local 
                   community center with just 50 attendees.
@@ -52,7 +52,7 @@ const ConventionHistory = () => {
               <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-6">
                 <h4 className="text-xl font-bold text-primary mb-3">Building Bridges</h4>
                 <p className="text-gray-700">
-                  We envision ConventionHub as more than just a convention—it&apos;s a bridge connecting 
+                  We envision Collect-It-Con as more than just a convention—it&apos;s a bridge connecting 
                   diverse communities. From seasoned tournament players to casual collectors, from 
                   young enthusiasts to veteran hobbyists, we create spaces where everyone belongs.
                 </p>

@@ -76,7 +76,7 @@ const Header = () => {
               <div className="text-2xl">🎴</div>
             </div>
             <Link href="/" className="text-3xl font-bold text-white hover:text-accent transition-colors duration-300">
-              ConventionHub
+              Collect-It-Con
             </Link>
           </div>
 
@@ -113,6 +113,9 @@ const Header = () => {
                   </div>
                   <Link href="/things-to-do/vendors" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">
                     Vendors
+                  </Link>
+                  <Link href="/things-to-do/venue-map" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">
+                    Venue Map
                   </Link>
                 </div>
               </div>
