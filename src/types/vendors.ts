@@ -28,5 +28,6 @@ export interface Vendor {
   contact: VendorContact;
   specialties: string[];
   featured: boolean;
+  logo?: string;
   image?: string;
 }

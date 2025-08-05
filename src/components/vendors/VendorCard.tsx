@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Vendor } from '@/types/vendors';
+import VendorLogo from './VendorLogo';
 
 interface VendorCardProps {
   vendor: Vendor;
@@ -39,30 +40,47 @@ const VendorCard = ({ vendor, featured = false, onShowMap }: VendorCardProps) =>
   const hasMoreSpecialties = vendor.specialties.length > 3;
 
   return (
-    <div className={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full min-h-[420px] ${
-      featured ? 'ring-2 ring-yellow-400 transform hover:scale-105' : 'hover:scale-102'
+    <div className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col h-full min-h-[420px] border border-gray-100 ${
+      featured 
+        ? 'ring-2 ring-yellow-400 shadow-yellow-100 transform hover:scale-105 bg-gradient-to-br from-white to-yellow-50' 
+        : 'hover:scale-102 hover:border-gray-200 hover:bg-gradient-to-br hover:from-white hover:to-gray-50'
     }`}>
       {/* Featured Badge */}
       {featured && (
-        <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-4 py-2 text-sm font-semibold flex items-center">
-          <span className="mr-2">⭐</span>
-          Featured Vendor
+        <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-400 text-white px-4 py-2 text-sm font-semibold flex items-center shadow-lg">
+          <span className="font-bold">Featured Vendor</span>
+          <div className="ml-auto">
+            <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
+          </div>
         </div>
       )}
 
       <div className="p-4 flex flex-col h-full">
-        {/* Header - Fixed Height */}
-        <div className="mb-3 h-16 flex flex-col justify-between">
-          <h3 className="text-lg font-bold text-gray-800 leading-tight overflow-hidden" style={{
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical'
-          }}>{vendor.name}</h3>
-          <div className="flex items-center">
-            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(vendor.category)}`}>
-              <span className="mr-1">{getCategoryIcon(vendor.category)}</span>
-              {vendor.category}
-            </span>
+        {/* Logo and Header Section - Fixed Height */}
+        <div className="mb-3 h-20 flex gap-3">
+          {/* Vendor Logo */}
+          <div className="flex-shrink-0">
+            <VendorLogo
+              logo={vendor.logo}
+              name={vendor.name}
+              category={vendor.category}
+              className="w-16 h-16 border border-gray-200 shadow-sm"
+            />
+          </div>
+          
+          {/* Header Info */}
+          <div className="flex-1 flex flex-col min-w-0">
+            <h3 className="text-lg font-bold text-gray-800 leading-tight overflow-hidden mb-1" style={{
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical'
+            }}>{vendor.name}</h3>
+            <div className="flex items-center">
+              <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(vendor.category)}`}>
+                <span className="mr-1">{getCategoryIcon(vendor.category)}</span>
+                {vendor.category}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -77,12 +95,15 @@ const VendorCard = ({ vendor, featured = false, onShowMap }: VendorCardProps) =>
 
         {/* Specialties - Fixed Height */}
         <div className="mb-3 h-18">
-          <h4 className="text-xs font-semibold text-gray-800 mb-1">Specialties:</h4>
+          <h4 className="text-xs font-semibold text-gray-800 mb-1 flex items-center">
+            <span className="mr-1">✨</span>
+            Specialties:
+          </h4>
           <div className="flex flex-wrap gap-1 h-12 overflow-hidden">
             {displayedSpecialties.map((specialty, index) => (
               <span
                 key={index}
-                className="bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-xs h-fit"
+                className="bg-gradient-to-r from-blue-100 to-purple-100 text-gray-700 px-2 py-1 rounded-full text-xs h-fit border border-blue-200 hover:scale-105 transition-transform duration-200"
               >
                 {specialty}
               </span>
@@ -90,11 +111,11 @@ const VendorCard = ({ vendor, featured = false, onShowMap }: VendorCardProps) =>
             {hasMoreSpecialties && (
               <button
                 onClick={() => setShowAllSpecialties(!showAllSpecialties)}
-                className="text-primary hover:text-primary/80 text-xs font-medium transition-colors bg-gray-100 px-2 py-1 rounded-md h-fit"
+                className="text-primary hover:text-primary/80 text-xs font-medium transition-all duration-200 h-fit bg-primary/10 px-2 py-1 rounded-full hover:bg-primary/20"
               >
                 {showAllSpecialties 
-                  ? 'Show less' 
-                  : `+${vendor.specialties.length - 3} more`
+                  ? '← Show less' 
+                  : `+${vendor.specialties.length - 3} more →`
                 }
               </button>
             )}
@@ -102,19 +123,25 @@ const VendorCard = ({ vendor, featured = false, onShowMap }: VendorCardProps) =>
         </div>
 
         {/* Booth Information - Fixed Height */}
-        <div className="bg-gray-50 rounded-lg p-3 mb-3 h-16">
+        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg p-3 mb-3 h-16 border border-gray-200">
           <div className="grid grid-cols-2 gap-2 text-xs h-full">
             <div className="flex flex-col justify-center">
-              <span className="font-semibold text-gray-700">Booth:</span>
+              <span className="font-semibold text-gray-700 flex items-center">
+                <span className="mr-1">🏪</span>
+                Booth:
+              </span>
               <button
                 onClick={() => onShowMap?.(vendor.boothNumber)}
-                className="text-primary hover:text-primary/80 font-semibold transition-colors underline text-left"
+                className="text-primary hover:text-primary/80 font-bold transition-all duration-200 underline text-left hover:scale-105 transform"
               >
                 {vendor.boothNumber}
               </button>
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-semibold text-gray-700">Location:</span>
+              <span className="font-semibold text-gray-700 flex items-center">
+                <span className="mr-1">📍</span>
+                Location:
+              </span>
               <p className="text-gray-600 text-xs leading-tight">{vendor.location}</p>
             </div>
           </div>

@@ -18,7 +18,8 @@ export const vendors: Vendor[] = [
       }
     },
     specialties: ['Pokemon Cards', 'Magic: The Gathering', 'Yu-Gi-Oh!', 'Rare Singles'],
-    featured: true
+    featured: true,
+    logo: 'https://via.placeholder.com/120x80/4F46E5/FFFFFF?text=TCG+Masters'
   },
   {
     id: 'sports-card-central',
@@ -37,7 +38,8 @@ export const vendors: Vendor[] = [
       }
     },
     specialties: ['Baseball Cards', 'Basketball Cards', 'Football Cards', 'Vintage Collections'],
-    featured: true
+    featured: true,
+    logo: 'https://via.placeholder.com/120x80/10B981/FFFFFF?text=Sports+Central'
   },
   {
     id: 'game-zone-accessories',
@@ -143,7 +145,8 @@ export const vendors: Vendor[] = [
       }
     },
     specialties: ['Vintage Cards', 'Retro Games', 'Classic Consoles', 'Rare Finds'],
-    featured: true
+    featured: true,
+    logo: 'https://via.placeholder.com/120x80/7C3AED/FFFFFF?text=Retro+Vault'
   },
   // Melbourne-based vendors
   {
@@ -163,7 +166,8 @@ export const vendors: Vendor[] = [
       }
     },
     specialties: ['Magic: The Gathering', 'Pokemon TCG', 'Board Games', 'Tournament Hosting'],
-    featured: true
+    featured: true,
+    logo: 'https://via.placeholder.com/120x80/DC2626/FFFFFF?text=Good+Games'
   },
   {
     id: 'mindgames-melbourne',
@@ -296,7 +300,8 @@ export const vendors: Vendor[] = [
       }
     },
     specialties: ['Vintage Cards', 'Limited Editions', 'Rare Collectibles', 'Graded Cards'],
-    featured: true
+    featured: true,
+    logo: 'https://via.placeholder.com/120x80/F59E0B/FFFFFF?text=Collectors+Cache'
   },
   {
     id: 'the-comic-shop',

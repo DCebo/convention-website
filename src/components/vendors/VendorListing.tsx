@@ -4,8 +4,10 @@ import { useState, useMemo, useEffect } from 'react';
 import { vendors, vendorCategories } from '@/data/vendors';
 import { VendorCategory } from '@/types/vendors';
 import VendorCard from './VendorCard';
+import VendorListCard from './VendorListCard';
 import VendorFilter, { SortOption } from './VendorFilter';
 import Pagination from './Pagination';
+import ViewToggle, { ViewMode } from './ViewToggle';
 
 interface VendorListingProps {
   onShowMap?: (boothNumber: string) => void;
@@ -17,6 +19,7 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<SortOption>('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const vendorsPerPage = 12;
 
   // Load preferences from localStorage on mount
@@ -28,6 +31,7 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
         setSelectedCategory(preferences.category || 'All');
         setSortBy(preferences.sortBy || 'name');
         setSortOrder(preferences.sortOrder || 'asc');
+        setViewMode(preferences.viewMode || 'grid');
       } catch (error) {
         console.error('Error loading filter preferences:', error);
       }
@@ -39,10 +43,11 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
     const preferences = {
       category: selectedCategory,
       sortBy,
-      sortOrder
+      sortOrder,
+      viewMode
     };
     localStorage.setItem('vendorFilterPreferences', JSON.stringify(preferences));
-  }, [selectedCategory, sortBy, sortOrder]);
+  }, [selectedCategory, sortBy, sortOrder, viewMode]);
 
   const filteredAndSortedVendors = useMemo(() => {
     // Filter vendors
@@ -111,8 +116,8 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
         onSortOrderChange={setSortOrder}
       />
 
-      {/* Results Summary */}
-      <div className="mb-8">
+      {/* Results Summary and View Toggle */}
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <p className="text-gray-600 flex items-center flex-wrap gap-2">
           <span>
             Showing {filteredAndSortedVendors.length} vendor{filteredAndSortedVendors.length !== 1 ? 's' : ''}
@@ -124,6 +129,11 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
             Sorted by {sortBy} ({sortOrder === 'asc' ? 'A-Z' : 'Z-A'})
           </span>
         </p>
+        
+        <ViewToggle
+          viewMode={viewMode}
+          onViewModeChange={setViewMode}
+        />
       </div>
 
       {/* Featured Vendors */}
@@ -133,9 +143,16 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
             <span className="text-yellow-500 mr-2">⭐</span>
             Featured Vendors
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className={viewMode === 'grid' 
+            ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            : "space-y-4"
+          }>
             {featuredVendors.map(vendor => (
-              <VendorCard key={vendor.id} vendor={vendor} featured onShowMap={onShowMap} />
+              viewMode === 'grid' ? (
+                <VendorCard key={vendor.id} vendor={vendor} featured onShowMap={onShowMap} />
+              ) : (
+                <VendorListCard key={vendor.id} vendor={vendor} featured onShowMap={onShowMap} />
+              )
             ))}
           </div>
         </div>
@@ -147,9 +164,16 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
             All Vendors ({regularVendors.length})
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className={viewMode === 'grid' 
+            ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
+            : "space-y-4 mb-8"
+          }>
             {paginatedVendors.map(vendor => (
-              <VendorCard key={vendor.id} vendor={vendor} onShowMap={onShowMap} />
+              viewMode === 'grid' ? (
+                <VendorCard key={vendor.id} vendor={vendor} onShowMap={onShowMap} />
+              ) : (
+                <VendorListCard key={vendor.id} vendor={vendor} onShowMap={onShowMap} />
+              )
             ))}
           </div>
           

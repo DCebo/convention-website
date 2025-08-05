@@ -3,14 +3,7 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white relative overflow-hidden">
-      {/* Decorative background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        {/* <div className="absolute top-10 left-10 text-6xl">♠️</div>
-        <div className="absolute top-20 right-20 text-4xl">♥️</div>
-        <div className="absolute bottom-20 left-20 text-5xl">♦️</div>
-        <div className="absolute bottom-10 right-10 text-4xl">♣️</div> */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl opacity-5">🎴</div>
-      </div>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -18,9 +11,8 @@ const Footer = () => {
           <div className="col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <div className="text-xl">🎴</div>
               </div>
-              <h3 className="text-2xl font-bold text-primary">
+              <h3 className="text-2xl font-bold text-white">
                 Collect-It-Con
               </h3>
             </div>
