@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { vendors, vendorCategories } from '@/data/vendors';
 import { VendorCategory } from '@/types/vendors';
 import VendorCard from './VendorCard';
-import VendorFilter from './VendorFilter';
+import VendorFilter, { SortOption } from './VendorFilter';
 import Pagination from './Pagination';
 
 interface VendorListingProps {
@@ -15,9 +15,37 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
   const [selectedCategory, setSelectedCategory] = useState<VendorCategory | 'All'>('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState<SortOption>('name');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const vendorsPerPage = 12;
 
-  const filteredVendors = useMemo(() => {
+  // Load preferences from localStorage on mount
+  useEffect(() => {
+    const savedPreferences = localStorage.getItem('vendorFilterPreferences');
+    if (savedPreferences) {
+      try {
+        const preferences = JSON.parse(savedPreferences);
+        setSelectedCategory(preferences.category || 'All');
+        setSortBy(preferences.sortBy || 'name');
+        setSortOrder(preferences.sortOrder || 'asc');
+      } catch (error) {
+        console.error('Error loading filter preferences:', error);
+      }
+    }
+  }, []);
+
+  // Save preferences to localStorage when they change
+  useEffect(() => {
+    const preferences = {
+      category: selectedCategory,
+      sortBy,
+      sortOrder
+    };
+    localStorage.setItem('vendorFilterPreferences', JSON.stringify(preferences));
+  }, [selectedCategory, sortBy, sortOrder]);
+
+  const filteredAndSortedVendors = useMemo(() => {
+    // Filter vendors
     const filtered = vendors.filter(vendor => {
       const matchesCategory = selectedCategory === 'All' || vendor.category === selectedCategory;
       const matchesSearch = searchTerm === '' || 
@@ -29,14 +57,39 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
       
       return matchesCategory && matchesSearch;
     });
+
+    // Sort vendors
+    const sorted = [...filtered].sort((a, b) => {
+      let comparison = 0;
+      
+      switch (sortBy) {
+        case 'name':
+          comparison = a.name.localeCompare(b.name);
+          break;
+        case 'category':
+          comparison = a.category.localeCompare(b.category);
+          break;
+        case 'featured':
+          comparison = (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+          break;
+        case 'location':
+          comparison = a.location.localeCompare(b.location);
+          break;
+        default:
+          comparison = a.name.localeCompare(b.name);
+      }
+      
+      return sortOrder === 'asc' ? comparison : -comparison;
+    });
     
     // Reset to page 1 when filters change
     setCurrentPage(1);
-    return filtered;
-  }, [selectedCategory, searchTerm]);
+    return sorted;
+  }, [selectedCategory, searchTerm, sortBy, sortOrder]);
 
-  const featuredVendors = filteredVendors.filter(vendor => vendor.featured);
-  const regularVendors = filteredVendors.filter(vendor => !vendor.featured);
+  // Separate featured and regular vendors only if not sorting by featured
+  const featuredVendors = sortBy === 'featured' ? [] : filteredAndSortedVendors.filter(vendor => vendor.featured);
+  const regularVendors = sortBy === 'featured' ? filteredAndSortedVendors : filteredAndSortedVendors.filter(vendor => !vendor.featured);
   
   // Pagination calculations
   const totalPages = Math.ceil(regularVendors.length / vendorsPerPage);
@@ -52,14 +105,24 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
         onCategoryChange={setSelectedCategory}
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
+        sortBy={sortBy}
+        onSortChange={setSortBy}
+        sortOrder={sortOrder}
+        onSortOrderChange={setSortOrder}
       />
 
       {/* Results Summary */}
       <div className="mb-8">
-        <p className="text-gray-600">
-          Showing {filteredVendors.length} vendor{filteredVendors.length !== 1 ? 's' : ''}
-          {selectedCategory !== 'All' && ` in ${selectedCategory}`}
-          {searchTerm && ` matching "${searchTerm}"`}
+        <p className="text-gray-600 flex items-center flex-wrap gap-2">
+          <span>
+            Showing {filteredAndSortedVendors.length} vendor{filteredAndSortedVendors.length !== 1 ? 's' : ''}
+            {selectedCategory !== 'All' && ` in ${selectedCategory}`}
+            {searchTerm && ` matching "${searchTerm}"`}
+          </span>
+          <span className="text-gray-400">•</span>
+          <span className="text-sm bg-gray-100 px-2 py-1 rounded-md">
+            Sorted by {sortBy} ({sortOrder === 'asc' ? 'A-Z' : 'Z-A'})
+          </span>
         </p>
       </div>
 
@@ -102,7 +165,7 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
       )}
 
       {/* No Results */}
-      {filteredVendors.length === 0 && (
+      {filteredAndSortedVendors.length === 0 && (
         <div className="text-center py-12">
           <div className="text-6xl mb-4">🔍</div>
           <h3 className="text-xl font-semibold text-gray-800 mb-2">No vendors found</h3>

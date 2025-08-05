@@ -7,7 +7,7 @@ import NewsletterModal, { NewsletterModalRef } from '@/components/ui/NewsletterM
 import { useRef } from 'react';
 
 // Event Configuration - Update this date for the next convention
-const NEXT_EVENT_DATE = new Date('2025-10-25T09:00:00');
+const NEXT_EVENT_DATE = new Date('2025-11-29T09:00:00');
 
 export default function Home() {
   const newsletterModalRef = useRef<NewsletterModalRef>(null);

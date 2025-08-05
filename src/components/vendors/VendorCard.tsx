@@ -90,7 +90,7 @@ const VendorCard = ({ vendor, featured = false, onShowMap }: VendorCardProps) =>
             {hasMoreSpecialties && (
               <button
                 onClick={() => setShowAllSpecialties(!showAllSpecialties)}
-                className="text-primary hover:text-primary/80 text-xs font-medium transition-colors h-fit"
+                className="text-primary hover:text-primary/80 text-xs font-medium transition-colors bg-gray-100 px-2 py-1 rounded-md h-fit"
               >
                 {showAllSpecialties 
                   ? 'Show less' 

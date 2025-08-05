@@ -25,18 +25,32 @@ const VenueMap = ({ highlightedBooth, onBoothClick, className = '' }: VenueMapPr
       <div className="relative w-full h-[600px] bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 rounded-lg">
         {/* Venue Sections */}
         {venueSections.map(section => (
-          <div
-            key={section.id}
-            className="absolute border-2 border-gray-300 rounded-lg flex items-center justify-center text-sm font-semibold text-gray-700 shadow-sm"
-            style={{
-              left: `${section.x}%`,
-              top: `${section.y}%`,
-              width: `${section.width}%`,
-              height: `${section.height}%`,
-              backgroundColor: section.color,
-            }}
-          >
-            <span className="text-center px-2 py-1 bg-white/80 rounded-md shadow-sm">{section.name}</span>
+          <div key={section.id}>
+            {/* Section Background */}
+            <div
+              className="absolute border-2 border-gray-300 rounded-lg shadow-sm"
+              style={{
+                left: `${section.x}%`,
+                top: `${section.y}%`,
+                width: `${section.width}%`,
+                height: `${section.height}%`,
+                backgroundColor: section.color,
+              }}
+            />
+            {/* Section Title */}
+            <div
+              className="absolute flex items-center justify-center z-10"
+              style={{
+                left: `${section.x}%`,
+                top: `${section.y + 1}%`,
+                width: `${section.width}%`,
+                height: '4%',
+              }}
+            >
+              <span className="text-center px-3 py-1 bg-white/95 rounded-md shadow-md text-sm font-bold text-gray-800 border border-gray-200">
+                {section.name}
+              </span>
+            </div>
           </div>
         ))}
 
@@ -81,25 +95,32 @@ const VenueMap = ({ highlightedBooth, onBoothClick, className = '' }: VenueMapPr
           🚪 Main Entrance
         </div>
 
-        {/* Legend */}
-        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-xl border-2 border-gray-200 text-sm">
-          <h4 className="font-bold mb-3 text-gray-800 flex items-center">
-            <span className="mr-2">📋</span>
+        {/* Legend - Positioned to avoid overlap with sections */}
+        <div 
+          className="absolute bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-xl border-2 border-gray-200 text-xs z-30 max-w-[180px]"
+          style={{ 
+            top: '1%', 
+            right: '1%',
+            transform: 'translateX(-10px)'
+          }}
+        >
+          <h4 className="font-bold mb-2 text-gray-800 flex items-center text-sm">
+            <span className="mr-1">📋</span>
             Legend
           </h4>
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <div className="flex items-center">
-              <div className="w-5 h-5 border-2 border-purple-400 bg-purple-100 rounded mr-3 shadow-sm"></div>
-              <span className="text-gray-700">Occupied Booth</span>
+              <div className="w-4 h-4 border-2 border-purple-400 bg-purple-100 rounded mr-2 shadow-sm flex-shrink-0"></div>
+              <span className="text-gray-700 text-xs">Occupied Booth</span>
             </div>
             <div className="flex items-center">
-              <div className="w-5 h-5 border-2 border-gray-400 bg-gray-200 rounded mr-3 shadow-sm"></div>
-              <span className="text-gray-700">Available Booth</span>
+              <div className="w-4 h-4 border-2 border-gray-400 bg-gray-200 rounded mr-2 shadow-sm flex-shrink-0"></div>
+              <span className="text-gray-700 text-xs">Available Booth</span>
             </div>
             {highlightedBooth && (
               <div className="flex items-center">
-                <div className="w-5 h-5 border-2 border-red-500 bg-red-200 rounded mr-3 shadow-sm animate-pulse"></div>
-                <span className="text-red-700 font-semibold">Selected Booth</span>
+                <div className="w-4 h-4 border-2 border-red-500 bg-red-200 rounded mr-2 shadow-sm animate-pulse flex-shrink-0"></div>
+                <span className="text-red-700 font-semibold text-xs">Selected Booth</span>
               </div>
             )}
           </div>
