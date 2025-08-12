@@ -22,8 +22,6 @@ const Footer = () => {
             </p>
             <div className="mt-4 flex space-x-2">
               <span className="bg-primary/20 text-primary px-2 py-1 rounded-full text-xs font-medium">TCG</span>
-              <span className="bg-secondary/20 text-secondary px-2 py-1 rounded-full text-xs font-medium">Sports Cards</span>
-              <span className="bg-accent/20 text-accent px-2 py-1 rounded-full text-xs font-medium">Community</span>
             </div>
           </div>
 

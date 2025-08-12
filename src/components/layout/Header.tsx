@@ -203,22 +203,22 @@ const Header = () => {
                 <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="py-2">
                     <Link
+                      href="/participate/vendors"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
+                    >
+                      Vendors
+                    </Link>
+                    <Link
                       href="/participate/volunteer"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
                     >
-                      Volunteer
+                      Superheroes
                     </Link>
                     <Link
                       href="/participate/guests"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
                     >
                       Guests
-                    </Link>
-                    <Link
-                      href="/participate/performers"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
-                    >
-                      Performers
                     </Link>
                     <Link
                       href="/participate/comics-pop-art"
@@ -231,18 +231,6 @@ const Header = () => {
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
                     >
                       Art Show
-                    </Link>
-                    <Link
-                      href="/participate/vendors"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
-                    >
-                      Vendors
-                    </Link>
-                    <Link
-                      href="/participate/superheroes"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
-                    >
-                      Superheroes
                     </Link>
                     <Link
                       href="/participate/fan-tables"
