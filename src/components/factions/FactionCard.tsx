@@ -44,16 +44,16 @@ export default function FactionCard({
     >
       {/* Faction Header */}
       <div 
-        className="p-6 text-white relative"
+        className="p-6 text-white relative text-center"
         style={{ backgroundColor: faction.colors.primary }}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center relative">
           <div>
             <h3 className="text-xl font-bold">{faction.displayName}</h3>
             <p className="text-sm opacity-90">{faction.theme}</p>
           </div>
           {isSelected && (
-            <div className="bg-white rounded-full p-2">
+            <div className="absolute top-0 right-0 bg-white rounded-full p-2">
               <svg className="w-6 h-6" style={{ color: faction.colors.primary }} fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
@@ -68,14 +68,14 @@ export default function FactionCard({
       </div>
 
       {/* Faction Content */}
-      <div className="p-6" style={{ color: faction.colors.text }}>
+      <div className="p-6 text-center" style={{ color: faction.colors.text }}>
         <p className="text-sm mb-4 leading-relaxed">
           {faction.description}
         </p>
 
         {/* Stats Section */}
         {showStats && (
-          <div className="mb-4 p-3 rounded-md" style={{ backgroundColor: faction.colors.background }}>
+          <div className="mb-4 p-3 rounded-md text-center" style={{ backgroundColor: faction.colors.background }}>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <span className="font-semibold">Members:</span>
@@ -95,12 +95,12 @@ export default function FactionCard({
             e.stopPropagation();
             setIsExpanded(!isExpanded);
           }}
-          className="flex items-center justify-between w-full text-left text-sm font-medium mb-2 hover:opacity-80"
+          className="flex items-center justify-center w-full text-sm font-medium mb-2 hover:opacity-80"
           style={{ color: faction.colors.primary }}
         >
           <span>Faction Benefits</span>
           <svg 
-            className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+            className={`w-4 h-4 ml-2 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -111,7 +111,7 @@ export default function FactionCard({
 
         {/* Benefits List */}
         {isExpanded && (
-          <ul className="text-xs space-y-1 ml-4">
+          <ul className="text-xs space-y-1 text-left max-w-xs mx-auto">
             {faction.benefits.map((benefit, index) => (
               <li key={index} className="flex items-start">
                 <span className="mr-2 mt-1">•</span>
