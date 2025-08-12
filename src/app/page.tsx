@@ -31,7 +31,7 @@ export default function Home() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
-              🚀 Your ultimate destination for <span className="font-bold text-primary">TCG</span> and 
+              Your ultimate destination for <span className="font-bold text-primary">TCG</span> and 
               <span className="font-bold text-secondary"> sports card</span> conventions! 
               Join our epic community for legendary tournaments, rare card trading, and unforgettable gaming experiences.
             </p>
@@ -136,10 +136,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/buy-now" className="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg">
-              🎫 Get Your Tickets
+              Get Your Tickets
             </a>
             <button onClick={handleStayUpdatedClick} className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-purple-600 transition-all duration-200">
-              📧 Stay Updated
+              Stay Updated
             </button>
           </div>
         </div>
