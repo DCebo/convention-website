@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { vendors, vendorCategories } from '@/data/vendors';
 import { VendorCategory } from '@/types/vendors';
 import VendorCard from './VendorCard';
@@ -8,6 +8,9 @@ import VendorListCard from './VendorListCard';
 import VendorFilter, { SortOption } from './VendorFilter';
 import Pagination from './Pagination';
 import ViewToggle, { ViewMode } from './ViewToggle';
+import BackToTop from '../ui/BackToTop';
+import KeyboardNavigation from '../ui/KeyboardNavigation';
+import KeyboardShortcutsHelp from '../ui/KeyboardShortcutsHelp';
 
 interface VendorListingProps {
   onShowMap?: (boothNumber: string) => void;
@@ -21,6 +24,9 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const vendorsPerPage = 12;
+  
+  // Ref for search input focus
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Load preferences from localStorage on mount
   useEffect(() => {
@@ -101,6 +107,37 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
   const startIndex = (currentPage - 1) * vendorsPerPage;
   const paginatedVendors = regularVendors.slice(startIndex, startIndex + vendorsPerPage);
 
+  // Keyboard navigation handlers
+  const handleSearchFocus = () => {
+    searchInputRef.current?.focus();
+  };
+
+  const handleClearFilters = () => {
+    setSelectedCategory('All');
+    setSearchTerm('');
+    setSortBy('name');
+    setSortOrder('asc');
+    setCurrentPage(1);
+  };
+
+  const handleToggleView = () => {
+    setViewMode(viewMode === 'grid' ? 'list' : 'grid');
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Filter Section */}
@@ -114,6 +151,7 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
         onSortChange={setSortBy}
         sortOrder={sortOrder}
         onSortOrderChange={setSortOrder}
+        searchInputRef={searchInputRef}
       />
 
       {/* Results Summary and View Toggle */}
@@ -207,6 +245,17 @@ const VendorListing = ({ onShowMap }: VendorListingProps) => {
           </button>
         </div>
       )}
+
+      {/* Navigation Enhancements */}
+      <BackToTop />
+      <KeyboardShortcutsHelp />
+      <KeyboardNavigation
+        onSearchFocus={handleSearchFocus}
+        onClearFilters={handleClearFilters}
+        onToggleView={handleToggleView}
+        onNextPage={handleNextPage}
+        onPrevPage={handlePrevPage}
+      />
     </div>
   );
 };

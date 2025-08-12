@@ -1,5 +1,5 @@
-import PageLayout from '@/components/layout/PageLayout';
-import TicketPurchase from '@/components/tickets/TicketPurchase';
+import PageLayout from '@/components/layout/PageLayout'
+import EventbriteCheckout from '@/components/tickets/EventBriteTicketPurchase'
 
 export default function BuyNowPage() {
   return (
@@ -11,13 +11,14 @@ export default function BuyNowPage() {
               Get Your Convention Passes
             </h1>
             <p className="text-lg text-gray-600">
-              Choose from our available pass types and secure your spot at the convention
+              Choose from our available pass types and secure your spot at the
+              convention
             </p>
           </div>
-          
-          <TicketPurchase />
+
+          <EventbriteCheckout eventId="1445387455789" />
         </div>
       </div>
     </PageLayout>
-  );
+  )
 }

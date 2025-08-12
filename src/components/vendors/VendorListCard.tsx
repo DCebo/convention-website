@@ -5,7 +5,7 @@ import VendorLogo from './VendorLogo';
 interface VendorListCardProps {
   vendor: Vendor;
   featured?: boolean;
-  onShowMap?: () => void;
+  onShowMap?: (boothNumber: string) => void;
 }
 
 const VendorListCard = ({ vendor, featured = false, onShowMap }: VendorListCardProps) => {

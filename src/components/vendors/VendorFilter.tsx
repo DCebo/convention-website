@@ -12,6 +12,7 @@ interface VendorFilterProps {
   onSortChange: (sort: SortOption) => void;
   sortOrder: 'asc' | 'desc';
   onSortOrderChange: (order: 'asc' | 'desc') => void;
+  searchInputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
 const VendorFilter = ({
@@ -23,7 +24,8 @@ const VendorFilter = ({
   sortBy,
   onSortChange,
   sortOrder,
-  onSortOrderChange
+  onSortOrderChange,
+  searchInputRef
 }: VendorFilterProps) => {
   const getCategoryIcon = (category: VendorCategory | 'All') => {
     switch (category) {
@@ -80,9 +82,10 @@ const VendorFilter = ({
             </svg>
           </div>
           <input
+            ref={searchInputRef}
             id="vendor-search"
             type="text"
-            placeholder="Search by name, description, or specialty..."
+            placeholder="Search by name, description, or specialty... (Press / to focus)"
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"

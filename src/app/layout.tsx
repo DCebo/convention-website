@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const geistSans = Geist({
@@ -14,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Collect-It-Con - TCG & Sports Card Convention',
-  description: 'Your premier destination for TCG and sports card conventions. Join us for exciting tournaments, trading opportunities, and community events.',
+  description:
+    'Your premier destination for TCG and sports card conventions. Join us for exciting tournaments, trading opportunities, and community events.',
 }
 
 export default function RootLayout({
@@ -27,6 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script
+          src="https://www.eventbrite.com.au/static/widgets/eb_widgets.js"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>
