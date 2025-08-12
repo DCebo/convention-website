@@ -1,3 +1,9 @@
 export { default as FactionCard } from './FactionCard';
 export { default as FactionSelector } from './FactionSelector';
 export { default as QRCodeDisplay } from './QRCodeDisplay';
+export { default as FactionLeaderboard } from './FactionLeaderboard';
+export { default as FactionProgressBar } from './FactionProgressBar';
+export { default as FactionAchievementBadge } from './FactionAchievementBadge';
+export { default as FactionSocialShare } from './FactionSocialShare';
+export { default as FactionHistoryChart } from './FactionHistoryChart';
+export { default as FactionDashboard } from './FactionDashboard';

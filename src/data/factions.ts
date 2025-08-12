@@ -4,9 +4,9 @@ export const FACTIONS: Record<FactionId, Faction> = {
   'mystic-guardians': {
     id: 'mystic-guardians',
     name: 'mystic-guardians',
-    displayName: 'Mystic Guardians',
-    description: 'Masters of ancient wisdom and mystical arts. The Mystic Guardians seek rare and powerful cards that hold secrets from forgotten realms.',
-    theme: 'Fantasy & Magic',
+    displayName: 'Mystic Guardians Guild',
+    description: 'Masters of ancient wisdom and mystical arts. The Mystic Guardians specialize in acquiring rare magical items, enchanted comics, and cards that hold secrets from forgotten realms.',
+    theme: 'Fantasy & Magic Collectors',
     colors: {
       primary: '#6366f1', // Indigo
       secondary: '#8b5cf6', // Violet
@@ -16,10 +16,10 @@ export const FACTIONS: Record<FactionId, Faction> = {
     },
     motto: 'Knowledge is the greatest treasure',
     benefits: [
-      'Exclusive access to rare card previews',
-      'Priority seating at magic-themed tournaments',
-      'Special Mystic Guardian badge and lanyard',
-      'Access to faction-only trading sessions',
+      'Exclusive access to rare magical item previews',
+      'Priority access to fantasy-themed booths',
+      'Special Mystic Guardian guild badge and lanyard',
+      'Access to guild-only trading sessions',
       '10% discount on mystical-themed merchandise'
     ],
     totalPoints: 0,
@@ -29,9 +29,9 @@ export const FACTIONS: Record<FactionId, Faction> = {
   'shadow-collectors': {
     id: 'shadow-collectors',
     name: 'shadow-collectors',
-    displayName: 'Shadow Collectors',
-    description: 'Elite collectors who thrive in the shadows, seeking the rarest and most elusive cards. They value stealth, strategy, and the thrill of the hunt.',
-    theme: 'Dark & Mysterious',
+    displayName: 'Shadow Collectors Guild',
+    description: 'Elite collectors who thrive in the shadows, seeking the rarest and most elusive items across the multiverse. They value stealth, strategy, and the thrill of uncovering hidden treasures.',
+    theme: 'Dark & Mysterious Relics',
     colors: {
       primary: '#1f2937', // Gray 800
       secondary: '#374151', // Gray 700
@@ -42,10 +42,10 @@ export const FACTIONS: Record<FactionId, Faction> = {
     motto: 'In darkness, we find the rarest treasures',
     benefits: [
       'Early access to limited edition releases',
-      'Invitation to exclusive shadow auctions',
-      'Special Shadow Collector pin and certificate',
-      'Access to private collector meetups',
-      'Priority access to grading services'
+      'Invitation to exclusive shadow marketplace auctions',
+      'Special Shadow Collector guild pin and certificate',
+      'Access to private guild meetups',
+      'Priority access to rare item authentication'
     ],
     totalPoints: 0,
     memberCount: 0,
@@ -54,9 +54,9 @@ export const FACTIONS: Record<FactionId, Faction> = {
   'crystal-knights': {
     id: 'crystal-knights',
     name: 'crystal-knights',
-    displayName: 'Crystal Knights',
-    description: 'Noble warriors who value honor, tradition, and the pristine condition of their collections. They champion fair play and sportsmanship.',
-    theme: 'Honor & Tradition',
+    displayName: 'Crystal Knights Guild',
+    description: 'Noble collectors who value honor, tradition, and the pristine condition of their acquisitions. They champion fair trading practices and maintain the highest standards in the marketplace.',
+    theme: 'Honor & Tradition Keepers',
     colors: {
       primary: '#0ea5e9', // Sky 500
       secondary: '#06b6d4', // Cyan 500
@@ -66,11 +66,11 @@ export const FACTIONS: Record<FactionId, Faction> = {
     },
     motto: 'Honor above all, collection perfection eternal',
     benefits: [
-      'Free card protection sleeves and cases',
+      'Free item protection sleeves and cases',
       'Access to professional grading workshops',
-      'Special Crystal Knight tournament entry',
-      'Complimentary card authentication services',
-      'VIP seating at championship events'
+      'Special Crystal Knight marketplace privileges',
+      'Complimentary item authentication services',
+      'VIP access to premium marketplace areas'
     ],
     totalPoints: 0,
     memberCount: 0,
@@ -79,9 +79,9 @@ export const FACTIONS: Record<FactionId, Faction> = {
   'storm-runners': {
     id: 'storm-runners',
     name: 'storm-runners',
-    displayName: 'Storm Runners',
-    description: 'Fast-paced adventurers who love the excitement of sports cards and competitive play. They embody speed, energy, and the spirit of competition.',
-    theme: 'Sports & Competition',
+    displayName: 'Storm Runners Guild',
+    description: 'Fast-paced adventurers who specialize in sports memorabilia and competitive collecting. They embody speed, energy, and the thrill of the hunt for athletic treasures.',
+    theme: 'Sports & Competition Collectors',
     colors: {
       primary: '#f97316', // Orange 500
       secondary: '#eab308', // Yellow 500
@@ -91,11 +91,11 @@ export const FACTIONS: Record<FactionId, Faction> = {
     },
     motto: 'Speed, skill, and the thrill of victory',
     benefits: [
-      'Priority access to sports card breaks',
-      'Exclusive Storm Runner jersey and cap',
-      'Free entry to speed-opening competitions',
+      'Priority access to sports memorabilia booths',
+      'Exclusive Storm Runner guild jersey and cap',
+      'Free entry to speed-collecting competitions',
       'Access to athlete meet-and-greet sessions',
-      'Special sports memorabilia discounts'
+      'Special sports memorabilia marketplace discounts'
     ],
     totalPoints: 0,
     memberCount: 0,
@@ -104,60 +104,60 @@ export const FACTIONS: Record<FactionId, Faction> = {
 };
 
 export const FACTION_CONTEST: FactionContest = {
-  id: 'convention-2024-faction-war',
-  name: 'The Great Faction War 2024',
-  description: 'Join one of four legendary factions and compete for glory! Earn points through purchases, activities, and special challenges. The faction with the most points wins exclusive prizes and bragging rights!',
-  startDate: new Date('2024-01-01'),
-  endDate: new Date('2024-12-31'),
+  id: 'convention-2025-guild-competition',
+  name: 'The Multiverse Marketplace Guild Competition 2025',
+  description: 'Get recruited into one of four collector guilds and compete for the Golden Seal! Earn prestige through trading, exploring booths, and uncovering secret QR deal markers. The guild with the most prestige wins the championship title!',
+  startDate: new Date('2025-01-01'),
+  endDate: new Date('2025-12-31'),
   isActive: true,
   rules: [
-    'Each attendee can join only one faction per convention',
-    'Points are earned at a rate of 1 point per dollar spent with participating vendors',
-    'Bonus points can be earned through special activities and challenges',
-    'Points are tracked via QR codes provided with ticket purchases',
+    'Each attendee is recruited into one guild upon arrival',
+    'Prestige is earned through trading, exploring booths, and marketplace activities',
+    'Bonus prestige can be earned by uncovering secret QR deal markers',
+    'Prestige is tracked via QR codes found throughout the marketplace',
     'Final standings will be announced at the closing ceremony',
-    'Faction membership is free with convention admission'
+    'Guild membership is free with convention admission'
   ],
   prizes: {
-    first: 'Exclusive faction champion trophy, premium card collection, and $500 vendor credit',
-    second: 'Silver faction medal, special edition card set, and $300 vendor credit',
-    third: 'Bronze faction badge, commemorative card pack, and $200 vendor credit',
-    participation: 'Faction participation certificate and exclusive faction sticker set'
+    first: 'The Golden Seal of the Collector\'s Guild, premium collector\'s cache, and $500 marketplace credit',
+    second: 'Silver Guild Medal, special edition collector set, and $300 marketplace credit',
+    third: 'Bronze Guild Badge, commemorative collector pack, and $200 marketplace credit',
+    participation: 'Guild participation certificate and exclusive guild sticker set'
   },
   pointsPerDollar: 1,
   bonusActivities: [
     {
-      id: 'tournament-participation',
-      name: 'Tournament Participation',
-      description: 'Participate in any official tournament',
+      id: 'marketplace-exploration',
+      name: 'Marketplace Exploration',
+      description: 'Visit and explore different vendor booths',
       points: 50,
       isActive: true,
     },
     {
       id: 'social-media-share',
       name: 'Social Media Share',
-      description: 'Share faction pride on social media with #FactionWar2024',
+      description: 'Share guild pride on social media with #MultiverseMarketplace2025',
       points: 25,
       isActive: true,
     },
     {
       id: 'volunteer-activity',
       name: 'Volunteer Activity',
-      description: 'Volunteer for convention activities',
+      description: 'Volunteer for marketplace activities',
       points: 100,
       isActive: true,
     },
     {
-      id: 'faction-recruitment',
-      name: 'Faction Recruitment',
-      description: 'Successfully recruit a new member to your faction',
+      id: 'guild-recruitment',
+      name: 'Guild Recruitment',
+      description: 'Successfully recruit a new member to your guild',
       points: 75,
       isActive: true,
     },
     {
-      id: 'trivia-challenge',
-      name: 'Faction Trivia Challenge',
-      description: 'Complete the faction-themed trivia challenge',
+      id: 'collector-challenge',
+      name: 'Collector\'s Challenge',
+      description: 'Complete the guild-themed collector challenge',
       points: 40,
       isActive: true,
     }
