@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendEmail, emailTemplates, textToHtml } from '@/lib/email';
 
+export const dynamic = 'force-static';
+
 // Email configuration - REPLACE WITH ACTUAL EMAIL
 const VOLUNTEER_EMAIL = process.env.VOLUNTEER_EMAIL || 'PLACEHOLDER_EMAIL@example.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@collect-it-con.com';
