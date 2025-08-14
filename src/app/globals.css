@@ -33,3 +33,97 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Mobile viewport fixes */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Ensure proper mobile viewport handling */
+@supports (padding: max(0px)) {
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Fix for mobile button spacing */
+@media (max-width: 640px) {
+  .mobile-button-spacing {
+    margin-bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+  }
+}
+
+/* Eventbrite widget sizing - optimized for better user experience */
+[id^="eventbrite-widget-container"] {
+  width: 100% !important;
+  min-height: 800px !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+}
+
+[id^="eventbrite-widget-container"] iframe {
+  width: 100% !important;
+  min-height: 800px !important;
+  height: 800px !important;
+}
+
+/* Desktop: wider container for better proportions */
+@media (min-width: 768px) {
+  [id^="eventbrite-widget-container"] {
+    min-width: 500px !important;
+    width: 100% !important;
+    max-width: 900px !important;
+  }
+  
+  [id^="eventbrite-widget-container"] iframe {
+    min-width: 500px !important;
+    width: 100% !important;
+  }
+}
+
+/* Mobile: responsive down to ~320px */
+@media (max-width: 767px) {
+  [id^="eventbrite-widget-container"] {
+    min-width: 320px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 800px !important;
+  }
+  
+  [id^="eventbrite-widget-container"] iframe {
+    min-width: 320px !important;
+    width: 100% !important;
+    min-height: 800px !important;
+    height: 800px !important;
+  }
+}
+
+/* Fallback styles for older browsers that don't support modern opacity syntax */
+.opacity-90 {
+  opacity: 0.9 !important;
+}
+
+.opacity-80 {
+  opacity: 0.8 !important;
+}
+
+.opacity-70 {
+  opacity: 0.7 !important;
+}
+
+/* Ensure text remains readable on gradient backgrounds */
+.bg-gradient-to-r .text-white,
+.bg-gradient-to-br .text-white,
+.bg-gradient-to-l .text-white {
+  color: #ffffff !important;
+}
+
+/* Fallback for browsers that don't support CSS gradients */
+.bg-gradient-to-r {
+  background-color: #7c3aed; /* fallback purple */
+}
+
+.bg-gradient-to-br {
+  background-color: #7c3aed; /* fallback purple */
+}

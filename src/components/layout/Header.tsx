@@ -1,6 +1,11 @@
+'use client';
+
 import Link from 'next/link'
+import { useState } from 'react'
+import MobileMenu from './MobileMenu'
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   return (
     <>
       {/* Mini Header */}
@@ -10,7 +15,7 @@ const Header = () => {
             {/* Event Date and Buy Now */}
             <div className="flex items-center space-x-4">
               <span className="text-white font-medium">
-                Nov. 29th - Nov 30th 2025 in Box Hill, VIC
+                Nov. 29th in Collingwood
               </span>
               <Link
                 href="/buy-now"
@@ -254,6 +259,7 @@ const Header = () => {
             <div className="md:hidden">
               <button
                 type="button"
+                onClick={() => setIsMobileMenuOpen(true)}
                 className="text-white hover:bg-white/20 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
                 aria-label="Open main menu"
               >
@@ -280,6 +286,12 @@ const Header = () => {
           <div className="absolute inset-0 bg-white/30 animate-pulse"></div>
         </div>
       </header>
+
+      {/* Mobile Menu */}
+      <MobileMenu 
+        isOpen={isMobileMenuOpen} 
+        onClose={() => setIsMobileMenuOpen(false)} 
+      />
     </>
   )
 }

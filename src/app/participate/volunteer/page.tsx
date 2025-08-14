@@ -277,28 +277,31 @@ export default function VolunteerPage() {
         </div>
 
         {/* Benefits Section */}
-        <div className="bg-gradient-to-r from-purple-600 to-accent rounded-2xl p-8 mb-12 text-white">
+        <div className="rounded-2xl p-8 mb-12 text-white" style={{
+          background: 'linear-gradient(90deg, #7c3aed 0%, #9333ea 100%)',
+          backgroundImage: 'linear-gradient(90deg, #7c3aed 0%, #9333ea 100%)'
+        }}>
           <h2 className="text-2xl font-bold mb-6 text-center">Volunteer Benefits</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="text-3xl mb-2">🎫</div>
               <h3 className="font-semibold mb-1">Free Convention Pass</h3>
-              <p className="text-sm opacity-90">Full access to all convention activities</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Full access to all convention activities</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">👕</div>
               <h3 className="font-semibold mb-1">Volunteer T-Shirt</h3>
-              <p className="text-sm opacity-90">Exclusive volunteer merchandise</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Exclusive volunteer merchandise</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🍕</div>
               <h3 className="font-semibold mb-1">Meals Provided</h3>
-              <p className="text-sm opacity-90">Free meals during your volunteer shifts</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Free meals during your volunteer shifts</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🤝</div>
               <h3 className="font-semibold mb-1">Community</h3>
-              <p className="text-sm opacity-90">Meet amazing people and make lasting friendships</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Meet amazing people and make lasting friendships</p>
             </div>
           </div>
         </div>

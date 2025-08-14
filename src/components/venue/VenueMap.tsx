@@ -22,7 +22,7 @@ const VenueMap = ({ highlightedBooth, onBoothClick, className = '' }: VenueMapPr
   return (
     <div className={`relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl overflow-hidden shadow-lg ${className}`}>
       {/* Map Container */}
-      <div className="relative w-full h-[600px] bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 rounded-lg">
+      <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 rounded-lg overflow-auto">
         {/* Venue Sections */}
         {venueSections.map(section => (
           <div key={section.id}>
@@ -90,37 +90,37 @@ const VenueMap = ({ highlightedBooth, onBoothClick, className = '' }: VenueMapPr
           );
         })}
 
-        {/* Entrance */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-xl text-lg font-bold shadow-lg">
-          🚪 Main Entrance
+        {/* Entrance - Responsive sizing */}
+        <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-lg font-bold shadow-lg">
+          🚪 <span className="hidden sm:inline">Main </span>Entrance
         </div>
 
-        {/* Legend - Positioned to avoid overlap with sections */}
+        {/* Legend - Responsive positioning */}
         <div 
-          className="absolute bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-xl border-2 border-gray-200 text-xs z-30 max-w-[180px]"
+          className="absolute bg-white/95 backdrop-blur-sm p-2 sm:p-3 rounded-xl shadow-xl border-2 border-gray-200 text-xs z-30 max-w-[140px] sm:max-w-[180px]"
           style={{ 
             top: '1%', 
             right: '1%',
-            transform: 'translateX(-10px)'
+            transform: 'translateX(-5px) sm:translateX(-10px)'
           }}
         >
-          <h4 className="font-bold mb-2 text-gray-800 flex items-center text-sm">
+          <h4 className="font-bold mb-1 sm:mb-2 text-gray-800 flex items-center text-xs sm:text-sm">
             <span className="mr-1">📋</span>
             Legend
           </h4>
-          <div className="space-y-1.5">
+          <div className="space-y-1 sm:space-y-1.5">
             <div className="flex items-center">
-              <div className="w-4 h-4 border-2 border-purple-400 bg-purple-100 rounded mr-2 shadow-sm flex-shrink-0"></div>
-              <span className="text-gray-700 text-xs">Occupied Booth</span>
+              <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-purple-400 bg-purple-100 rounded mr-1 sm:mr-2 shadow-sm flex-shrink-0"></div>
+              <span className="text-gray-700 text-xs">Occupied</span>
             </div>
             <div className="flex items-center">
-              <div className="w-4 h-4 border-2 border-gray-400 bg-gray-200 rounded mr-2 shadow-sm flex-shrink-0"></div>
-              <span className="text-gray-700 text-xs">Available Booth</span>
+              <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-gray-400 bg-gray-200 rounded mr-1 sm:mr-2 shadow-sm flex-shrink-0"></div>
+              <span className="text-gray-700 text-xs">Available</span>
             </div>
             {highlightedBooth && (
               <div className="flex items-center">
-                <div className="w-4 h-4 border-2 border-red-500 bg-red-200 rounded mr-2 shadow-sm animate-pulse flex-shrink-0"></div>
-                <span className="text-red-700 font-semibold text-xs">Selected Booth</span>
+                <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-red-500 bg-red-200 rounded mr-1 sm:mr-2 shadow-sm animate-pulse flex-shrink-0"></div>
+                <span className="text-red-700 font-semibold text-xs">Selected</span>
               </div>
             )}
           </div>

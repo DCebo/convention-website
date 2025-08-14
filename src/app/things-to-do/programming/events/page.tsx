@@ -50,9 +50,12 @@ export default function EventsPage() {
           </div>
 
           {/* Highlight Box */}
-          <div className="bg-gradient-to-r from-accent to-purple-600 rounded-lg p-6 text-white mb-8">
+          <div className="rounded-lg p-6 text-white mb-8" style={{
+            background: 'linear-gradient(90deg, #9333ea 0%, #7c3aed 100%)',
+            backgroundImage: 'linear-gradient(90deg, #9333ea 0%, #7c3aed 100%)'
+          }}>
             <h3 className="text-xl font-bold mb-3">🚀 Something Big is Coming!</h3>
-            <p className="text-lg opacity-90">
+            <p className="text-lg text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>
               We&apos;re working on a revolutionary gamified experience that will transform 
               how you participate in conventions. Stay tuned for details about our 
               faction-based competition system!

@@ -25,31 +25,31 @@ export default function Home() {
           <div className="absolute top-40 right-20 text-4xl animate-pulse">⚡</div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 relative z-10 min-h-screen flex flex-col justify-center">
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-primary">
               Collect-It-Con
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
               Your ultimate destination for <span className="font-bold text-primary">TCG</span> and 
               <span className="font-bold text-secondary"> sports card</span> conventions! 
               Join our epic community for legendary tournaments, rare card trading, and unforgettable gaming experiences.
             </p>
             
             {/* Countdown to next event */}
-            <div className="mb-8 w-full max-w-6xl mx-auto">
+            <div className="mb-6 sm:mb-8 w-full max-w-6xl mx-auto">
               <Countdown 
                 targetDate={NEXT_EVENT_DATE} 
                 className="mb-0"
               />
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link href="/buy-now" className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
-                Buy Now for {new Date().getFullYear()}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4 pb-safe">
+              <Link href="/buy-now" className="bg-purple-600 hover:bg-purple-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
+                Buy Now for 2025
               </Link>
-              <Link href="/about" className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
+              <Link href="/about" className="bg-purple-600 hover:bg-purple-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
                 Learn More
               </Link>
             </div>

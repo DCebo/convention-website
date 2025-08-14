@@ -50,7 +50,7 @@ export default function FactionCard({
         <div className="flex items-center justify-center relative">
           <div>
             <h3 className="text-xl font-bold">{faction.displayName}</h3>
-            <p className="text-sm opacity-90">{faction.theme}</p>
+            <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>{faction.theme}</p>
           </div>
           {isSelected && (
             <div className="absolute top-0 right-0 bg-white rounded-full p-2">
@@ -62,7 +62,7 @@ export default function FactionCard({
         </div>
         
         {/* Motto */}
-        <div className="mt-3 italic text-sm opacity-90">
+        <div className="mt-3 italic text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>
           &ldquo;{faction.motto}&rdquo;
         </div>
       </div>

@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   title: 'Collect-It-Con - TCG & Sports Card Convention',
   description:
     'Your premier destination for TCG and sports card conventions. Join us for exciting tournaments, trading opportunities, and community events.',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 }
 
 export default function RootLayout({

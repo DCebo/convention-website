@@ -220,28 +220,31 @@ export default function VendorsPage() {
         </div>
 
         {/* Benefits Section */}
-        <div className="bg-gradient-to-r from-purple-600 to-accent rounded-2xl p-8 mb-12 text-white">
+        <div className="rounded-2xl p-8 mb-12 text-white" style={{
+          background: 'linear-gradient(90deg, #7c3aed 0%, #9333ea 100%)',
+          backgroundImage: 'linear-gradient(90deg, #7c3aed 0%, #9333ea 100%)'
+        }}>
           <h2 className="text-2xl font-bold mb-6 text-center">Vendor Benefits</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="text-3xl mb-2">🎯</div>
               <h3 className="font-semibold mb-1">Targeted Audience</h3>
-              <p className="text-sm opacity-90">Reach passionate collectors and gamers</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Reach passionate collectors and gamers</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🏪</div>
               <h3 className="font-semibold mb-1">Professional Setup</h3>
-              <p className="text-sm opacity-90">Quality booth spaces with amenities</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Quality booth spaces with amenities</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🤝</div>
               <h3 className="font-semibold mb-1">Networking</h3>
-              <p className="text-sm opacity-90">Connect with other vendors and industry professionals</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Connect with other vendors and industry professionals</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">📈</div>
               <h3 className="font-semibold mb-1">Growth Opportunity</h3>
-              <p className="text-sm opacity-90">Expand your customer base and brand recognition</p>
+              <p className="text-sm text-white" style={{ opacity: 0.9, color: 'rgba(255, 255, 255, 0.9)' }}>Expand your customer base and brand recognition</p>
             </div>
           </div>
         </div>
