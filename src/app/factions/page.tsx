@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { PageLayout } from '@/components/layout';
 import { FactionDashboard } from '@/components/factions';
 
@@ -194,18 +195,18 @@ export default function FactionsPage() {
             Get recruited into a collector&apos;s guild and start earning prestige today. The race for the Golden Seal begins now!
           </p>
           <div className="space-x-4">
-            <a
+            <Link
               href="/buy-now"
               className="inline-block bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
               Get Your Ticket
-            </a>
-            <a
+            </Link>
+            <Link
               href="/participate/volunteer"
               className="inline-block border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-purple-600 transition-colors"
             >
               Join as Volunteer
-            </a>
+            </Link>
           </div>
         </div>
       </div>

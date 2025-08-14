@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { PageLayout } from '@/components/layout';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import Countdown from '@/components/ui/Countdown';
@@ -45,12 +46,12 @@ export default function Home() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <a href="/buy-now" className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
+              <Link href="/buy-now" className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
                 Buy Now for {new Date().getFullYear()}
-              </a>
-              <a href="/about" className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
+              </Link>
+              <Link href="/about" className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl inline-block text-center">
                 Learn More
-              </a>
+              </Link>
             </div>
 
             {/* Feature highlights */}
@@ -135,9 +136,9 @@ export default function Home() {
             Don&apos;t miss out on the most epic gaming conventions! Join our community and be part of legendary tournaments and unforgettable experiences.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/buy-now" className="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg">
+            <Link href="/buy-now" className="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-200 shadow-lg">
               Get Your Tickets
-            </a>
+            </Link>
             <button onClick={handleStayUpdatedClick} className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-purple-600 transition-all duration-200">
               Stay Updated
             </button>

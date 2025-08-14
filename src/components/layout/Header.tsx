@@ -12,7 +12,7 @@ const Header = () => {
               <span className="text-white font-medium">
                 Nov. 29th - Nov 30th 2025 in Box Hill, VIC
               </span>
-              <a
+              <Link
                 href="/buy-now"
                 className="text-purple-400 hover:text-purple-300 font-bold transition-colors duration-200 flex items-center space-x-1"
               >
@@ -30,7 +30,7 @@ const Header = () => {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
 
             {/* Social Media Links */}
