@@ -10,12 +10,9 @@ interface VolunteerFormData {
   email: string;
   phone: string;
   age: string;
-  experience: string;
   availability: string[];
-  preferredRoles: string[];
   emergencyContact: string;
   emergencyPhone: string;
-  specialSkills: string;
   motivation: string;
   acceptTerms: boolean;
   acceptBackground: boolean;
@@ -105,12 +102,9 @@ export default function VolunteerPage() {
     email: '',
     phone: '',
     age: '',
-    experience: '',
     availability: [],
-    preferredRoles: [],
     emergencyContact: '',
     emergencyPhone: '',
-    specialSkills: '',
     motivation: '',
     acceptTerms: false,
     acceptBackground: false
@@ -129,7 +123,7 @@ export default function VolunteerPage() {
     }
   };
 
-  const handleCheckboxChange = (field: 'availability' | 'preferredRoles', value: string, checked: boolean) => {
+  const handleCheckboxChange = (field: 'availability', value: string, checked: boolean) => {
     const currentArray = formData[field] as string[];
     const newArray = checked 
       ? [...currentArray, value]
@@ -171,9 +165,7 @@ export default function VolunteerPage() {
       newErrors.availability = 'Please select at least one availability option';
     }
 
-    if (formData.preferredRoles.length === 0) {
-      newErrors.preferredRoles = 'Please select at least one preferred role';
-    }
+
 
     // Terms acceptance
     if (!formData.acceptTerms) {
@@ -360,7 +352,7 @@ export default function VolunteerPage() {
 
         {/* Application Form */}
         <div className="bg-card-bg border border-border rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-primary mb-6">Volunteer Application</h2>
+          <h2 className="text-2xl font-bold text-primary mb-6 text-center">Volunteer Application</h2>
           
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Personal Information */}
@@ -509,77 +501,24 @@ export default function VolunteerPage() {
               {errors.availability && <p className="text-red-500 text-xs mt-2">{errors.availability}</p>}
             </div>
 
-            {/* Preferred Roles */}
+            {/* Motivation */}
             <div>
-              <h3 className="text-lg font-semibold text-primary mb-4">Preferred Volunteer Roles *</h3>
-              <p className="text-sm text-gray-600 mb-4">Select all roles you&apos;re interested in (we&apos;ll try to match you with your preferences):</p>
-              <div className="grid md:grid-cols-2 gap-3">
-                {volunteerOpportunities.map((opportunity) => (
-                  <label key={opportunity.id} className="flex items-start">
-                    <input
-                      type="checkbox"
-                      checked={formData.preferredRoles.includes(opportunity.id)}
-                      onChange={(e) => handleCheckboxChange('preferredRoles', opportunity.id, e.target.checked)}
-                      className="mr-3 mt-1 h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
-                    />
-                    <div>
-                      <span className="text-sm font-medium text-gray-700">{opportunity.title}</span>
-                      <p className="text-xs text-gray-500">{opportunity.description}</p>
-                    </div>
-                  </label>
-                ))}
-              </div>
-              {errors.preferredRoles && <p className="text-red-500 text-xs mt-2">{errors.preferredRoles}</p>}
-            </div>
-
-            {/* Experience and Skills */}
-            <div>
-              <h3 className="text-lg font-semibold text-primary mb-4">Experience & Skills</h3>
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
-                    Previous Volunteer Experience
-                  </label>
-                  <textarea
-                    id="experience"
-                    rows={3}
-                    value={formData.experience}
-                    onChange={(e) => handleInputChange('experience', e.target.value)}
-                    placeholder="Tell us about any previous volunteer experience you have..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="specialSkills" className="block text-sm font-medium text-gray-700 mb-1">
-                    Special Skills or Qualifications
-                  </label>
-                  <textarea
-                    id="specialSkills"
-                    rows={3}
-                    value={formData.specialSkills}
-                    onChange={(e) => handleInputChange('specialSkills', e.target.value)}
-                    placeholder="Any special skills, certifications, or qualifications that might be helpful..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="motivation" className="block text-sm font-medium text-gray-700 mb-1">
-                    Why do you want to volunteer? *
-                  </label>
-                  <textarea
-                    id="motivation"
-                    rows={4}
-                    value={formData.motivation}
-                    onChange={(e) => handleInputChange('motivation', e.target.value)}
-                    placeholder="Tell us what motivates you to volunteer at Collect-It-Con..."
-                    className={`w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-accent focus:border-accent ${
-                      errors.motivation ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                  />
-                  {errors.motivation && <p className="text-red-500 text-xs mt-1">{errors.motivation}</p>}
-                </div>
+              <h3 className="text-lg font-semibold text-primary mb-4">Tell Us About Yourself</h3>
+              <div>
+                <label htmlFor="motivation" className="block text-sm font-medium text-gray-700 mb-1">
+                  Why do you want to volunteer? *
+                </label>
+                <textarea
+                  id="motivation"
+                  rows={4}
+                  value={formData.motivation}
+                  onChange={(e) => handleInputChange('motivation', e.target.value)}
+                  placeholder="Tell us what motivates you to volunteer at Collect-It-Con..."
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-accent focus:border-accent ${
+                    errors.motivation ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                />
+                {errors.motivation && <p className="text-red-500 text-xs mt-1">{errors.motivation}</p>}
               </div>
             </div>
 

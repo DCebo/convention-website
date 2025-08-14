@@ -13,59 +13,11 @@ interface VendorFormData {
   businessType: string;
   description: string;
   products: string[];
-  boothSize: string;
-  electricalNeeds: boolean;
-  internetNeeds: boolean;
-  specialRequirements: string;
-  previousExperience: string;
-  references: string;
   acceptTerms: boolean;
   acceptPolicies: boolean;
 }
 
-interface BoothOption {
-  id: string;
-  name: string;
-  size: string;
-  description: string;
-  features: string[];
-  priceNote: string;
-}
 
-const boothOptions: BoothOption[] = [
-  {
-    id: 'standard',
-    name: 'Standard Booth',
-    size: '10\' x 10\'',
-    description: 'Perfect for small to medium vendors with basic display needs.',
-    features: ['10\' x 10\' space', 'Basic table and chairs', 'Standard lighting', 'Shared electrical access'],
-    priceNote: 'Pricing available upon request'
-  },
-  {
-    id: 'premium',
-    name: 'Premium Booth',
-    size: '10\' x 20\'',
-    description: 'Ideal for established vendors with larger inventory and display requirements.',
-    features: ['10\' x 20\' space', 'Premium table setup', 'Enhanced lighting', 'Dedicated electrical outlet', 'Priority placement'],
-    priceNote: 'Pricing available upon request'
-  },
-  {
-    id: 'corner',
-    name: 'Corner Booth',
-    size: '10\' x 10\'',
-    description: 'High-visibility corner location with increased foot traffic.',
-    features: ['10\' x 10\' corner space', 'Two-sided access', 'Premium lighting', 'Dedicated electrical', 'Maximum visibility'],
-    priceNote: 'Pricing available upon request'
-  },
-  {
-    id: 'showcase',
-    name: 'Showcase Booth',
-    size: '20\' x 20\'',
-    description: 'Premium large space for major vendors and featured exhibitors.',
-    features: ['20\' x 20\' space', 'Custom setup options', 'Professional lighting', 'Multiple electrical outlets', 'Featured placement', 'Storage area'],
-    priceNote: 'Pricing available upon request'
-  }
-];
 
 const productCategories = [
   'Trading Card Games (TCG)',
@@ -105,12 +57,6 @@ export default function VendorsPage() {
     businessType: '',
     description: '',
     products: [],
-    boothSize: '',
-    electricalNeeds: false,
-    internetNeeds: false,
-    specialRequirements: '',
-    previousExperience: '',
-    references: '',
     acceptTerms: false,
     acceptPolicies: false
   });
@@ -147,7 +93,7 @@ export default function VendorsPage() {
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
     if (!formData.businessType.trim()) newErrors.businessType = 'Business type is required';
     if (!formData.description.trim()) newErrors.description = 'Business description is required';
-    if (!formData.boothSize.trim()) newErrors.boothSize = 'Please select a booth size';
+
 
     // Email validation
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -300,40 +246,7 @@ export default function VendorsPage() {
           </div>
         </div>
 
-        {/* Booth Options */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-primary mb-8 text-center">Booth Options</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {boothOptions.map((booth) => (
-              <div key={booth.id} className="bg-card-bg border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-semibold text-primary">{booth.name}</h3>
-                  <span className="text-sm bg-accent/10 text-accent px-2 py-1 rounded-full">
-                    {booth.size}
-                  </span>
-                </div>
-                <p className="text-gray-600 mb-4 text-sm">{booth.description}</p>
-                
-                <div className="mb-4">
-                  <h4 className="font-medium text-primary mb-2 text-sm">Includes:</h4>
-                  <ul className="text-xs text-gray-600 space-y-1">
-                    {booth.features.map((feature, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-success mr-1">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                <div className="text-sm">
-                  <span className="font-medium text-primary">Pricing: </span>
-                  <span className="text-gray-600">{booth.priceNote}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Vendor Requirements */}
         <div className="mb-12 bg-slate-50 rounded-lg p-8">
@@ -396,7 +309,7 @@ export default function VendorsPage() {
 
         {/* Application Form */}
         <div className="bg-card-bg border border-border rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-primary mb-6">Vendor Application</h2>
+          <h2 className="text-2xl font-bold text-primary mb-6 text-center">Vendor Application</h2>
           
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Business Information */}
@@ -540,111 +453,7 @@ export default function VendorsPage() {
               {errors.products && <p className="text-red-500 text-xs mt-2">{errors.products}</p>}
             </div>
 
-            {/* Booth Requirements */}
-            <div>
-              <h3 className="text-lg font-semibold text-primary mb-4">Booth Requirements</h3>
-              
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  Preferred Booth Size *
-                </label>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {boothOptions.map((booth) => (
-                    <label key={booth.id} className="flex items-start p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="boothSize"
-                        value={booth.id}
-                        checked={formData.boothSize === booth.id}
-                        onChange={(e) => handleInputChange('boothSize', e.target.value)}
-                        className="mt-1 mr-3 h-4 w-4 text-accent focus:ring-accent border-gray-300"
-                      />
-                      <div>
-                        <span className="text-sm font-medium text-gray-700">{booth.name} ({booth.size})</span>
-                        <p className="text-xs text-gray-500 mt-1">{booth.description}</p>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-                {errors.boothSize && <p className="text-red-500 text-xs mt-2">{errors.boothSize}</p>}
-              </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="electricalNeeds"
-                    checked={formData.electricalNeeds}
-                    onChange={(e) => handleInputChange('electricalNeeds', e.target.checked)}
-                    className="mr-3 h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
-                  />
-                  <label htmlFor="electricalNeeds" className="text-sm text-gray-700">
-                    I need additional electrical outlets
-                  </label>
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="internetNeeds"
-                    checked={formData.internetNeeds}
-                    onChange={(e) => handleInputChange('internetNeeds', e.target.checked)}
-                    className="mr-3 h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
-                  />
-                  <label htmlFor="internetNeeds" className="text-sm text-gray-700">
-                    I need internet access
-                  </label>
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <label htmlFor="specialRequirements" className="block text-sm font-medium text-gray-700 mb-1">
-                  Special Requirements or Requests
-                </label>
-                <textarea
-                  id="specialRequirements"
-                  rows={3}
-                  value={formData.specialRequirements}
-                  onChange={(e) => handleInputChange('specialRequirements', e.target.value)}
-                  placeholder="Any special setup needs, accessibility requirements, or other requests..."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
-                />
-              </div>
-            </div>
-
-            {/* Experience and References */}
-            <div>
-              <h3 className="text-lg font-semibold text-primary mb-4">Experience & References</h3>
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="previousExperience" className="block text-sm font-medium text-gray-700 mb-1">
-                    Previous Convention/Event Experience
-                  </label>
-                  <textarea
-                    id="previousExperience"
-                    rows={3}
-                    value={formData.previousExperience}
-                    onChange={(e) => handleInputChange('previousExperience', e.target.value)}
-                    placeholder="Tell us about your experience at other conventions, trade shows, or events..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="references" className="block text-sm font-medium text-gray-700 mb-1">
-                    References
-                  </label>
-                  <textarea
-                    id="references"
-                    rows={3}
-                    value={formData.references}
-                    onChange={(e) => handleInputChange('references', e.target.value)}
-                    placeholder="Please provide contact information for 2-3 business references (other conventions, suppliers, etc.)..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
-                  />
-                </div>
-              </div>
-            </div>
 
             {/* Terms and Conditions */}
             <div>
