@@ -19,7 +19,7 @@ export default function EventsPage() {
           <div className="bg-card-bg border border-border rounded-lg p-8 mb-8">
             <h2 className="text-2xl font-semibold text-primary mb-4">Coming Soon</h2>
             <p className="text-lg text-gray-600 mb-6">
-              We&apos;re planning an incredible lineup of programming events for Collect-It-Con! 
+              We&apos;re planning an incredible lineup of programming events for Collect-It Con! 
               Get ready for tournaments, contests, special activities, and much more.
             </p>
             <div className="bg-gradient-to-r from-purple-100 to-accent/10 rounded-lg p-6">

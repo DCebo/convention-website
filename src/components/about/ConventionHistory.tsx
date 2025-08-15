@@ -7,7 +7,7 @@ const ConventionHistory = () => {
         </div>
         <div className="max-w-3xl mx-auto text-lg text-gray-600 space-y-6">
           <p>
-            Collect-It-Con began as a small gathering of local TCG enthusiasts in Melbourne. 
+            Collect-It Con began as a small gathering of local TCG enthusiasts in Melbourne. 
             What started as a weekend meetup has grown into one of Australia&apos;s premier 
             trading card and collectibles conventions.
           </p>

@@ -34,7 +34,7 @@ export default function Error({
             </h1>
             <p className="text-gray-600 mb-6">
               Don&apos;t worry, this happens sometimes. We&apos;re working to fix it. 
-              Try refreshing the page or go back to explore other parts of Collect-It-Con!
+              Try refreshing the page or go back to explore other parts of Collect-It Con!
             </p>
             
             {/* Error Details (only in development) */}

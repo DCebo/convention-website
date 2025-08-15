@@ -173,7 +173,7 @@ export default function VendorsPage() {
             </div>
             <h1 className="text-3xl font-bold text-primary mb-4">Application Submitted!</h1>
             <p className="text-lg text-gray-600 mb-8">
-              Thank you for your interest in becoming a vendor at Collect-It-Con! We&apos;ll review your application and get back to you within 5-7 business days with pricing and next steps.
+              Thank you for your interest in becoming a vendor at Collect-It Con! We&apos;ll review your application and get back to you within 5-7 business days with pricing and next steps.
             </p>
             <div className="bg-card-bg border border-border rounded-lg p-6 text-left max-w-2xl mx-auto">
               <h3 className="font-semibold text-primary mb-3">What happens next?</h3>
@@ -212,7 +212,7 @@ export default function VendorsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-primary mb-4">Become a Vendor at Collect-It-Con</h1>
+          <h1 className="text-4xl font-bold text-primary mb-4">Become a Vendor at Collect-It Con</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Join our community of passionate vendors and showcase your products to collectors, gamers, and enthusiasts. 
             Be part of the premier TCG and sports card convention experience!

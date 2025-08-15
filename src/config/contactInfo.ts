@@ -6,7 +6,7 @@ export interface ContactInfo {
 }
 
 export const contactInfo: ContactInfo = {
-  email: 'info@collect-it-con.com', // ← CHANGE THIS EMAIL HERE
+  email: 'info@collectitcon.com', // ← CHANGE THIS EMAIL HERE
   location: 'Collingwood, VIC',
   eventDate: 'Nov. 29th, 2025',
   eventLocation: 'Collingwood, VIC'

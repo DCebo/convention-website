@@ -19,7 +19,7 @@ export default function GuestsPage() {
           <div className="bg-card-bg border border-border rounded-lg p-8 mb-8">
             <h2 className="text-2xl font-semibold text-primary mb-4">To Be Announced</h2>
             <p className="text-lg text-gray-600 mb-6">
-              We&apos;re working hard to bring you amazing special guests for Collect-It-Con! 
+              We&apos;re working hard to bring you amazing special guests for Collect-It Con! 
               Stay tuned for exciting announcements about the incredible personalities who will be joining us.
             </p>
             <div className="bg-gradient-to-r from-purple-100 to-accent/10 rounded-lg p-6">

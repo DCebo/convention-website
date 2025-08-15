@@ -22,7 +22,7 @@ export default function NotFound() {
             </h1>
             <p className="text-gray-600 mb-6">
               The page you&apos;re looking for doesn&apos;t exist or may have been moved. 
-              Don&apos;t worry, there are plenty of other amazing things to discover at Collect-It-Con!
+              Don&apos;t worry, there are plenty of other amazing things to discover at Collect-It Con!
             </p>
           </div>
 

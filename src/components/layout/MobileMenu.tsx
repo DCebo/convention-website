@@ -50,7 +50,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               className="text-2xl font-bold text-white hover:text-yellow-300 transition-colors"
               onClick={onClose}
             >
-              Collect-It-Con
+              Collect-It Con
             </Link>
             <button
               onClick={onClose}

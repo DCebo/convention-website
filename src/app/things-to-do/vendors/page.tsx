@@ -26,7 +26,7 @@ export default function VendorsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
-              Collect-It-Con Vendors
+              Collect-It Con Vendors
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               🎉 Explore our epic vendor marketplace! Hunt for legendary cards, rare collectibles, and awesome gaming gear from the best dealers around! 🏆

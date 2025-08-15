@@ -11,7 +11,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
-              About Collect-It-Con
+              About Collect-It Con
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Discover our passion for bringing together the TCG and sports card community

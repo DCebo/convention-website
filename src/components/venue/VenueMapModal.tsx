@@ -47,7 +47,7 @@ const VenueMapModal = ({ isOpen, onClose, highlightedBooth }: VenueMapModalProps
         <div className="flex items-center justify-between p-6 border-b-2 border-gray-200 bg-gradient-to-r from-primary to-purple-600 text-white flex-shrink-0">
           <h2 className="text-3xl font-bold flex items-center">
             <span className="mr-3">🗺️</span>
-            Collect-It-Con Venue Map
+            Collect-It Con Venue Map
           </h2>
           <div className="flex items-center space-x-2">
             <span className="text-sm opacity-80">Press ESC to close</span>

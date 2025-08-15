@@ -15,7 +15,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               </div>
               <h3 className="text-2xl font-bold text-white">
-                Collect-It-Con
+                Collect-It Con
               </h3>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -101,7 +101,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Collect-It-Con. All rights reserved. Made with ❤️ for gamers.
+              © {new Date().getFullYear()} Collect-It Con. All rights reserved. Made with ❤️ for collectors and gamers.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="#" className="text-gray-400 hover:text-purple-400 text-sm transition-colors">

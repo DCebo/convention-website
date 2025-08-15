@@ -58,7 +58,7 @@ const Header = () => {
                 href="/"
                 className="text-3xl font-bold text-white hover:text-accent transition-colors duration-300"
               >
-                Collect-It-Con
+                Collect-It Con
               </Link>
             </div>
 
