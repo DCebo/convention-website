@@ -44,8 +44,8 @@ const EventbriteCheckout: React.FC<EventbriteCheckoutProps> = ({ eventId }) => {
             eventId: eventId,
             iframeContainerId: `eventbrite-widget-container-${eventId}`,
 
-            // Optional - Using 800px height for better user experience
-            iframeContainerHeight: 800, // Widget height in pixels
+            // Optional - Using 600px height for compact layout
+            iframeContainerHeight: 600, // Widget height in pixels
             onOrderComplete: exampleCallback, // Method called when an order has successfully completed
           })
           
@@ -95,7 +95,7 @@ const EventbriteCheckout: React.FC<EventbriteCheckoutProps> = ({ eventId }) => {
         </div>
       )}
       <div className="p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-xl border border-gray-100">
-        <div id={`eventbrite-widget-container-${eventId}`} className="min-h-[800px] w-full"></div>
+        <div id={`eventbrite-widget-container-${eventId}`} className="min-h-[600px] w-full"></div>
       </div>
     </div>
   )

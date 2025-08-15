@@ -54,48 +54,65 @@ html {
   }
 }
 
-/* Eventbrite widget sizing - optimized for better user experience */
+/* Eventbrite widget sizing - shorter and wider for better layout */
 [id^="eventbrite-widget-container"] {
   width: 100% !important;
-  min-height: 800px !important;
-  max-width: 900px !important;
+  min-height: 600px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
 }
 
 [id^="eventbrite-widget-container"] iframe {
   width: 100% !important;
-  min-height: 800px !important;
-  height: 800px !important;
+  min-height: 600px !important;
+  height: 600px !important;
 }
 
-/* Desktop: wider container for better proportions */
+/* Desktop: much wider container for better proportions */
 @media (min-width: 768px) {
   [id^="eventbrite-widget-container"] {
-    min-width: 500px !important;
+    min-width: 700px !important;
     width: 100% !important;
-    max-width: 900px !important;
+    max-width: 1200px !important;
   }
   
   [id^="eventbrite-widget-container"] iframe {
-    min-width: 500px !important;
+    min-width: 700px !important;
     width: 100% !important;
+  }
+}
+
+/* Tablet: medium width */
+@media (min-width: 640px) and (max-width: 767px) {
+  [id^="eventbrite-widget-container"] {
+    min-width: 600px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 600px !important;
+  }
+  
+  [id^="eventbrite-widget-container"] iframe {
+    min-width: 600px !important;
+    width: 100% !important;
+    min-height: 600px !important;
+    height: 600px !important;
   }
 }
 
 /* Mobile: responsive down to ~320px */
-@media (max-width: 767px) {
+@media (max-width: 639px) {
   [id^="eventbrite-widget-container"] {
     min-width: 320px !important;
     width: 100% !important;
     max-width: 100% !important;
-    min-height: 800px !important;
+    min-height: 600px !important;
   }
   
   [id^="eventbrite-widget-container"] iframe {
     min-width: 320px !important;
     width: 100% !important;
-    min-height: 800px !important;
-    height: 800px !important;
+    min-height: 600px !important;
+    height: 600px !important;
   }
 }
 
