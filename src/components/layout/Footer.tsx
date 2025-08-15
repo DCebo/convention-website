@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getSocialLinks } from '@/config/socialLinks';
+import { getContactEmail } from '@/config/contactInfo';
 
 const Footer = () => {
   return (
@@ -62,7 +63,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-4">
               <div className="text-gray-300 text-sm">
-                <p>info@collect-it-con.com</p>
+                <p>{getContactEmail()}</p>
               </div>
               
               {/* Social Media Links with gaming theme */}
