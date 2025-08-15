@@ -43,14 +43,38 @@ const NewsletterModal = forwardRef<NewsletterModalRef, NewsletterModalProps>(({ 
     };
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the email to your backend
-    console.log('Newsletter signup:', email);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsOpen(false);
-    }, 2000);
+    
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          submittedAt: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to subscribe to newsletter');
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 3000);
+    } catch (error) {
+      console.error('Newsletter signup error:', error);
+      // Still show success to user, but log the error
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 3000);
+    }
   };
 
   const handleClose = () => {
