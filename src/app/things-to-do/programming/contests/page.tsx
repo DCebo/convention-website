@@ -137,35 +137,38 @@ export default function ContestsPage() {
             </p>
           </div>
 
-          {/* Featured Contest - Faction War */}
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg shadow-lg mb-8 p-8 text-white">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                🏆 {FACTION_CONTEST.name}
-              </h2>
-              <p className="text-lg mb-6 max-w-3xl mx-auto">
-                {FACTION_CONTEST.description}
-              </p>
-              <Link href="/factions" className="inline-flex items-center bg-black bg-opacity-20 rounded-full px-6 py-2 hover:bg-opacity-30 transition-colors">
-                <svg className="w-5 h-5 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                </svg>
-                <span className="font-medium text-white">Contest Active Now!</span>
-              </Link>
+          {/* Featured Contest and Rules - Side by Side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            {/* Featured Contest - Faction War */}
+            <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg shadow-lg p-8 text-white">
+              <div className="text-center">
+                <h2 className="text-3xl font-bold mb-4">
+                  🏆 {FACTION_CONTEST.name}
+                </h2>
+                <p className="text-lg mb-6">
+                  {FACTION_CONTEST.description}
+                </p>
+                <Link href="/factions" className="inline-flex items-center bg-black bg-opacity-20 rounded-full px-6 py-2 hover:bg-opacity-30 transition-colors">
+                  <svg className="w-5 h-5 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium text-white">Contest Active Now!</span>
+                </Link>
+              </div>
             </div>
-          </div>
 
-          {/* Contest Rules */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-8 p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">How to Participate</h2>
-            <ul className="space-y-2 text-center max-w-4xl mx-auto">
-              {FACTION_CONTEST.rules.map((rule, index) => (
-                <li key={index} className="flex items-start justify-center">
-                  <span className="text-purple-600 mr-2 mt-1">•</span>
-                  <span className="text-gray-700 text-left">{rule}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Contest Rules */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">How to Participate</h2>
+              <ul className="space-y-2">
+                {FACTION_CONTEST.rules.map((rule, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-purple-600 mr-2 mt-1">•</span>
+                    <span className="text-gray-700">{rule}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Message Display */}

@@ -81,7 +81,7 @@ export interface FactionContest {
   }[];
 }
 
-export type FactionId = 'mystic-guardians' | 'shadow-collectors' | 'crystal-knights' | 'storm-runners';
+export type FactionId = 'vaultbreakers' | 'relickeepers' | 'riftwalkers' | 'chronoguards';
 
 export interface FactionStats {
   factionId: string;

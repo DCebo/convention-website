@@ -203,7 +203,7 @@ export const calculateFactionStats = (factionId: string): FactionStats => {
 };
 
 export const getAllFactionStats = (): FactionStats[] => {
-  const factionIds: FactionId[] = ['mystic-guardians', 'shadow-collectors', 'crystal-knights', 'storm-runners'];
+  const factionIds: FactionId[] = ['vaultbreakers', 'relickeepers', 'riftwalkers', 'chronoguards'];
   const stats = factionIds.map(id => calculateFactionStats(id));
   
   // Calculate ranks
