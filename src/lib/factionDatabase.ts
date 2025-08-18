@@ -25,7 +25,35 @@ const getStorageData = <T>(key: string): T[] => {
   if (typeof window === 'undefined') return [];
   try {
     const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : [];
+    if (!data) return [];
+    
+    const parsed = JSON.parse(data);
+    
+    // Convert date strings back to Date objects for specific keys
+    if (key === STORAGE_KEYS.QR_CODES) {
+      return parsed.map((item: QRCode) => ({
+        ...item,
+        createdAt: item.createdAt ? new Date(item.createdAt) : new Date(),
+        usedAt: item.usedAt ? new Date(item.usedAt) : undefined,
+        expiresAt: item.expiresAt ? new Date(item.expiresAt) : undefined,
+      }));
+    }
+    
+    if (key === STORAGE_KEYS.MEMBERS) {
+      return parsed.map((item: FactionMember) => ({
+        ...item,
+        joinedAt: item.joinedAt ? new Date(item.joinedAt) : new Date(),
+      }));
+    }
+    
+    if (key === STORAGE_KEYS.TRANSACTIONS) {
+      return parsed.map((item: PointTransaction) => ({
+        ...item,
+        timestamp: item.timestamp ? new Date(item.timestamp) : new Date(),
+      }));
+    }
+    
+    return parsed;
   } catch {
     return [];
   }
