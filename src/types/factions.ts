@@ -1,3 +1,8 @@
+export interface FactionBenefit {
+  title: string;
+  description: string;
+}
+
 export interface Faction {
   id: string;
   name: string;
@@ -13,7 +18,7 @@ export interface Faction {
   };
   logo?: string;
   motto: string;
-  benefits: string[];
+  benefits: FactionBenefit[]; // changed from string[]
   totalPoints: number;
   memberCount: number;
   isActive: boolean;

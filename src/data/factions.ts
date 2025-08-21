@@ -1,10 +1,10 @@
-import { Faction, FactionContest, FactionId } from '@/types/factions'
+import { Faction, FactionBenefit, FactionContest, FactionId } from '@/types/factions'
 
 export const FACTIONS: Record<FactionId, Faction> = {
   vaultbreakers: {
     id: 'vaultbreakers',
     name: 'vaultbreakers',
-    displayName: 'The Vaultbreakers',
+    displayName: 'The Vaultbreakers (Fast & First Claim)',
     description:
       'Swift Strikers of the First Find. Vaultbreakers believe the best treasures go to those who seize them first. Masters of rapid appraisal and quick deals, they swoop in before rivals even notice a prize is on the table. They wear crimson sashes to symbolize the rush of the first claim.',
     theme: 'Swift Strikers of the First Find',
@@ -17,11 +17,18 @@ export const FACTIONS: Record<FactionId, Faction> = {
     },
     motto: 'First in, best dressed.',
     benefits: [
-      'Early Bird Bonus – +25% points for purchases before 11:00 AM',
-      'First Vendor Double – first vendor purchase of the day earns 2× points',
-      'Section First Claim – first member to scan in a zone earns a faction-wide +2% boost for 30 minutes',
-      'Crimson sash and priority queue access',
-      'Exclusive early access to vendor previews',
+      {
+        title: 'Early Bird Bonus',
+        description: '+20% points for purchases before 11:00 AM.',
+      },
+      {
+        title: 'First Vendor Doubler',
+        description: 'First vendor purchase of the day earns 2× points.'
+      },
+      {
+        title: 'Flash Find',
+        description: 'Once per day, your first purchase within any random “Flash Find” 15-minute window earns +30 bonus points (announced).'
+      },
     ],
     totalPoints: 0,
     memberCount: 0,
@@ -30,7 +37,7 @@ export const FACTIONS: Record<FactionId, Faction> = {
   relickeepers: {
     id: 'relickeepers',
     name: 'relickeepers',
-    displayName: 'The Relickeepers',
+    displayName: 'The Relickeepers (Slow Burn & Strategy)',
     description:
       'Strategists of the Slow Burn. Relickeepers are patient archivists who believe a true collector must know when to hold back and when to strike. They wait for just the right piece to surface, then secure it with flawless precision. Their green insignia represents growth, patience, and the enduring value of preserved history.',
     theme: 'Strategists of the Slow Burn',
@@ -43,11 +50,18 @@ export const FACTIONS: Record<FactionId, Faction> = {
     },
     motto: 'Patience earns the prize.',
     benefits: [
-      'Final Hour Surge – +30% points for purchases in the last hour of the day',
-      'Combo Collector – spend 3 different vendors in 30 minutes for +10 bonus points',
-      'Category Mastery – buy from 5 different collectible categories in a day for +5% faction-wide points',
-      'Green insignia and strategic planning guides',
-      'Access to exclusive preservation workshops',
+      {
+        title: 'Final Hour Surge',
+        description: '+20% points for purchases in the last hour of the day.',
+      },
+      {
+        title: 'Combo Collector',
+        description: 'Visit 3 different vendors in 30 minutes for +15 bonus points.'
+      },
+      {
+        title: 'Preservation Bonus',
+        description: 'Make at least one purchase in each half of the day (morning + afternoon) for +5% total points that day.'
+      },
     ],
     totalPoints: 0,
     memberCount: 0,
@@ -56,7 +70,7 @@ export const FACTIONS: Record<FactionId, Faction> = {
   riftwalkers: {
     id: 'riftwalkers',
     name: 'riftwalkers',
-    displayName: 'The Riftwalkers',
+    displayName: 'The Riftwalkers (Luck & Opportunism)',
     description:
       'Opportunists of the Shifting Market. Riftwalkers have mastered the art of leaping between worlds — and deals — before others know they exist. They thrive on unpredictability, chasing rare finds wherever the multiverse opens a door. Their purple cloaks shimmer like the edges of the rifts they travel.',
     theme: 'Opportunists of the Shifting Market',
@@ -69,11 +83,18 @@ export const FACTIONS: Record<FactionId, Faction> = {
     },
     motto: 'Fortune favors the fearless.',
     benefits: [
-      'Faction Power Hour – one random hour per day where points are doubled for Riftwalkers',
-      'Treasure Portals – hidden "rift" QR codes worth big bonuses',
-      'Lucky Vendor – every 2 hours, a random vendor gives +20% points to this faction only',
-      'Shimmering purple cloak and rift detector device',
-      'Access to secret multiverse marketplace areas',
+      {
+        title: 'Faction Power Hour',
+        description: '2:00 – 3:00 PM all purchases earn 2× points.',
+      },
+      {
+        title: 'Rift Surges',
+        description: 'Once every 2 hours, the Riftwalkers’ app highlights a random “Rift Surge” window. Your next purchase in that 20-minute window earns +15 bonus points.'
+      },
+      {
+        title: 'Vendor Flux',
+        description: 'Every purchase has a 1 in 5 chance to earn +20% bonus points (shown in app immediately).'
+      },
     ],
     totalPoints: 0,
     memberCount: 0,
@@ -82,7 +103,7 @@ export const FACTIONS: Record<FactionId, Faction> = {
   chronoguards: {
     id: 'chronoguards',
     name: 'chronoguards',
-    displayName: 'The Chronoguards',
+    displayName: 'The Chronoguards (Teamwork & Timing)',
     description:
       'Coordinated Keepers of Time. Chronoguards believe history belongs to those who work in harmony. Masters of synchronized acquisitions, they know that a single collector is strong, but a united guild is unstoppable. Their blue sigil is shaped like an hourglass, marking their mastery of timing and teamwork.',
     theme: 'Coordinated Keepers of Time',
@@ -95,11 +116,18 @@ export const FACTIONS: Record<FactionId, Faction> = {
     },
     motto: 'Together, we keep the clock.',
     benefits: [
-      'Squad Scan Bonus – scanning with 3+ members within 1 minute gives +15 bonus points to each',
-      'Faction Rally – when 20 members complete a daily challenge, all members get +5% points for the rest of the day',
-      'Relay Bonus – if 5 members buy from the same vendor within 1 hour, each gets +10 bonus points',
-      'Blue hourglass sigil and synchronized timing devices',
-      'Access to coordinated group activities and team challenges',
+      {
+        title: 'Squad Harmony Bonus',
+        description: 'If 3+ members make purchases within the same 30-minute window (doesn’t need to be the exact same vendor), each earns +15 bonus points.'
+      },
+      {
+        title: 'Relay Bonus',
+        description: 'If 5 members purchase from the same vendor within 1 hour, each gets +20 bonus points.'
+      },
+      {
+        title: 'Synchronized Strike',
+        description: 'Once per day, a 30-minute window will activate where all Chronoguards earn +10% points (time announced).'
+      }
     ],
     totalPoints: 0,
     memberCount: 0,

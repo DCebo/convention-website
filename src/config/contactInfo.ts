@@ -5,8 +5,9 @@ export interface ContactInfo {
   eventLocation: string
 }
 
+// Change information here when needing to update contact information
 export const contactInfo: ContactInfo = {
-  email: 'info@collectitcon.com', // ← CHANGE THIS EMAIL HERE
+  email: 'info@collectitcon.com',
   location: 'Collingwood, VIC',
   eventDate: 'Nov. 29th, 2025',
   eventLocation: 'Collingwood, VIC',

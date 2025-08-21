@@ -113,10 +113,12 @@ export default function FactionCard({
         {isExpanded && (
           <ul className="text-xs space-y-1 text-left max-w-xs mx-auto">
             {faction.benefits.map((benefit, index) => (
-              <li key={index} className="flex items-start">
-                <span className="mr-2 mt-1">•</span>
-                <span>{benefit}</span>
-              </li>
+               <li key={index} className="flex items-start">
+               <span className="mr-2 mt-1">•</span>
+               <span>
+                 <strong>{benefit.title}</strong> – {benefit.description}
+               </span>
+             </li>
             ))}
           </ul>
         )}
